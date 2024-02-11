@@ -1,43 +1,83 @@
-﻿using Pizza_API.Data;
+﻿using System.Linq.Expressions;
+using System.Reflection;
+using System.Reflection.Metadata.Ecma335;
+using Microsoft.EntityFrameworkCore;
+using Pizza_API.Data;
 using Pizza_API.Models;
 
 namespace Pizza_API.Repositories
 {
     public class GenericRepository<T> : IRepository<T> where T : BaseModel
     {
-        private readonly ApplicationDbContext _dbContext;
+        protected ApplicationDbContext _dbContext;
         public GenericRepository(ApplicationDbContext dbContext)
         {
             _dbContext = dbContext;   
         }
-        public bool Add(T entity)
+        async public Task<T> Add(T entity)
         {
-            throw new NotImplementedException();
+           var addEntry = await _dbContext.Set<T>().AddAsync(entity);
+
+            await _dbContext.SaveChangesAsync();
+
+            if (addEntry.Entity.Id > 0)
+                return addEntry.Entity;
+
+            return null;
         }
 
-        public bool Delete(int id)
+        async public Task<bool> Delete(int id)
         {
-            throw new NotImplementedException();
+            var entity = await _dbContext.Set<T>().FirstOrDefaultAsync(e => e.Id == id);
+
+            if (entity == null)
+                return false;
+
+            _dbContext.Set<T>().Remove(entity);
+            return await _dbContext.SaveChangesAsync() > 0;
         }
 
-        public T? Get(System.Linq.Expressions.Expression<Func<T, bool>> predicate)
+        async public Task<T?> Get(Expression<Func<T, bool>> predicate)
         {
-            throw new NotImplementedException();
+           return await _dbContext.Set<T>().FirstOrDefaultAsync(predicate);
         }
 
-        public IEnumerable<T>? GetAll()
+        // Pourquoi pas de await
+        async public Task<IEnumerable<T?>> GetAll()
         {
-            throw new NotImplementedException();
+            return _dbContext.Set<T>();
+        }
+        // Pourquoi pas de await
+        async public Task<IEnumerable<T?>> GetAll(Expression<Func<T, bool>> predicate)
+        {
+            return  _dbContext.Set<T>().Where(predicate);
         }
 
-        public IEnumerable<T>? GetAll(System.Linq.Expressions.Expression<Func<T, bool>> predicate)
+        async public Task<T> Update(T entity)
         {
-            throw new NotImplementedException();
-        }
+            // Récupère la valeur de ma db pour comparer à la nouvelle
+            var entityFromDb = await Get(e => e.Id == entity.Id);
 
-        public bool Update(T entity)
-        {
-            throw new NotImplementedException();
+            // Récupère le type de mon entity (elle est générique)
+            // Je dois connaitre son type pour avoir accès à ses propriétées
+            Type entityType = entity.GetType();
+
+            // Récupère les propriétés dans mon type
+            var entityProperties = entityType.GetProperties();
+
+            // Itère sur chaque propriété de mon array de property info
+            foreach (PropertyInfo property in entityProperties)
+            {
+                var valeurPropriete = property.GetValue(entity, null);
+                var valeurProprieteFromDb = property.GetValue(entityFromDb, null);
+                if (valeurProprieteFromDb != valeurPropriete)
+                    valeurProprieteFromDb = valeurPropriete;
+            }
+
+            if (await _dbContext.SaveChangesAsync() == 0)
+                return null;
+
+            return entityFromDb;
         }
     }
 }

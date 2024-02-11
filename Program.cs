@@ -15,10 +15,12 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<ApplicationDbContext>(option => option.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-builder.Services.AddScoped<IRepository<Ingredient>, GenericRepository();
+builder.Services.AddScoped<IRepository<Ingredient>, GenericRepository<Ingredient>>();
+builder.Services.AddScoped<IRepository<Pizza>, GenericRepository<Pizza>>();
 
 
 var app = builder.Build();
+
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

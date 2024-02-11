@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Pizza_API.Models
 {
@@ -7,6 +8,6 @@ namespace Pizza_API.Models
     {
         public string Name { get; set; }
         public string Description { get; set; }
-        public List<Pizza> Pizzas { get; set; }
+        public List<Pizza>? Pizzas { get; set; }
     }
 }
