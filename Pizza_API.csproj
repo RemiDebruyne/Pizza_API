@@ -9,10 +9,9 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="6.0.26" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.16" />
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
   </ItemGroup>
 	<ItemGroup>
-		<PackageReference Include="AutoMapper" Version="13.0.0" />
+		<PackageReference Include="AutoMapper" Version="13.0.1" />
 		<PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.26" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.26" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.26">
@@ -24,6 +23,5 @@
 
 	<ItemGroup>
 		<Folder Include="Migrations\" />
-		<Folder Include="DTOs\" />
 	</ItemGroup>
 </Project>

@@ -17,6 +17,9 @@ builder.Services.AddDbContext<ApplicationDbContext>(option => option.UseSqlServe
 
 builder.Services.AddScoped<IRepository<Ingredient>, GenericRepository<Ingredient>>();
 builder.Services.AddScoped<IRepository<Pizza>, GenericRepository<Pizza>>();
+builder.Services.AddScoped<IRepository<User>, GenericRepository<User>>();
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
 
 
 var app = builder.Build();
