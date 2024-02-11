@@ -40,7 +40,7 @@ namespace Pizza_API.Controllers
                     Message = "No User has this id"
                 });
 
-            RegisterDTO userDTO = _mapper.Map<RegisterDTO>(user)!;
+            UserDTO userDTO = _mapper.Map<UserDTO>(user)!;
 
             return Ok(new
             {
@@ -51,29 +51,30 @@ namespace Pizza_API.Controllers
 
         }
 
-        [HttpPost]
-        public async Task<IActionResult> Add([FromForm] RegisterDTO registerDTO)
-        {
-            var user = _mapper.Map<User>(registerDTO);
+        //[HttpPost]
+        //public async Task<IActionResult> Add([FromForm] RegisterDTO registerDTO)
+        //{
+        //    registerDTO.Password = PasswordCrypter.Encrypt(registerDTO.Password, "secret key");
+        //    var user = _mapper.Map<User>(registerDTO);
 
-            var userAdded = await _repository.Add(user);
+        //    var userAdded = await _repository.Add(user);
 
-            //Map l'utilisateur en UserDTO et pas en register DTO pour ne pas renvoyer le mdp et le status admin
-            var userAddedDTO = _mapper.Map<UserDTO>(userAdded)!;
+        //    //Map l'utilisateur en UserDTO et pas en register DTO pour ne pas renvoyer le mdp et le status admin
+        //    var userAddedDTO = _mapper.Map<UserDTO>(userAdded)!;
 
 
-            if (userAdded != null)
-                return CreatedAtAction(nameof(GetById),
-                                            new { id = userAddedDTO.Id },
-                                            new
-                                            {
-                                                Message = "The user was added to the database",
-                                                User = userAddedDTO
-                                            });
+        //    if (userAdded != null)
+        //        return CreatedAtAction(nameof(GetById),
+        //                                    new { id = userAddedDTO.Id },
+        //                                    new
+        //                                    {
+        //                                        Message = "The user was added to the database",
+        //                                        User = userAddedDTO
+        //                                    });
 
-            return BadRequest("Oops something went wrong");
+        //    return BadRequest("Oops something went wrong");
 
-        }
+        //}
 
 
 

@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Pizza_API.Data;
+using Pizza_API.Extensions;
 using Pizza_API.Models;
 using Pizza_API.Repositories;
 using System;
@@ -19,7 +20,7 @@ builder.Services.AddScoped<IRepository<Ingredient>, GenericRepository<Ingredient
 builder.Services.AddScoped<IRepository<Pizza>, GenericRepository<Pizza>>();
 builder.Services.AddScoped<IRepository<User>, GenericRepository<User>>();
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-
+builder.InjectDependencies();
 
 
 var app = builder.Build();
@@ -33,7 +34,11 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
+app.UseCors(options =>
+{
+    options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
+});
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();

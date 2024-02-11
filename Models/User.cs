@@ -15,7 +15,6 @@ namespace Pizza_API.Models
         [RegularExpression(@"^([a-zA-Z0-9\.\-_]+)@([a-zA-Z0-9\-_]+)(\.)?([a-zA-Z0-9\-_]+)?(\.){1}([a-zA-Z]{2,11})$", ErrorMessage = "Invalid email address")]
         public string Email { get; set; }
         [Required]
-        [PasswordValidator]
         public string Password { get; set; }   
         [Required]
         [Column("phone_number")]
