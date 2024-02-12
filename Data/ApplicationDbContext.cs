@@ -14,6 +14,7 @@ namespace Pizza_API.Data
         public DbSet<Pizza> Pizzas { get; set; }
         public DbSet<Ingredient> Ingredients { get; set; }
 
+        //Enlever les Listes de mes modèles et les rmeplacer par des liste de pizzas ingrédients
 
         #region DataSeeding
         //protected override void OnModelCreating(ModelBuilder modelBuilder)
