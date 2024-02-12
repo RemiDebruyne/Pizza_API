@@ -5,9 +5,8 @@ using Pizza_API.Validator;
 
 namespace Pizza_API.DTOs
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class LoginRequestDTO : ControllerBase
+
+    public class LoginRequestDTO 
     {
         [Required]
         public string? Email { get; set; }

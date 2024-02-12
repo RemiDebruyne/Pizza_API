@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Pizza_API.DTOs;
@@ -9,6 +10,7 @@ namespace Pizza_API.Controllers
 {
     [Route("[controller]")]
     [ApiController]
+
     public class IngredientController : ControllerBase
     {
         private readonly IRepository<Ingredient> _repository;

@@ -4,6 +4,11 @@ using System.Text;
 using Microsoft.OpenApi.Models;
 using Pizza_API.Helpers;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.EntityFrameworkCore;
+using Pizza_API.Data;
+using Pizza_API.Models;
+using Pizza_API.Repositories;
+using System.Text.Json.Serialization;
 
 namespace Pizza_API.Extensions
 {
@@ -12,18 +17,26 @@ namespace Pizza_API.Extensions
 
         public static void InjectDependencies(this WebApplicationBuilder builder)
         {
-            builder.AddSwagger();
+            builder.Services.AddControllers().AddJsonOptions(x => x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
+            builder.addSwagger();
+
+            builder.Services.AddScoped<IRepository<Ingredient>, GenericRepository<Ingredient>>();
+            builder.Services.AddScoped<IRepository<Pizza>, GenericRepository<Pizza>>();
+            builder.Services.AddScoped<IRepository<User>, GenericRepository<User>>();
             builder.AddAuthentication();
+            builder.Services.AddDbContext<ApplicationDbContext>(option => option.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+            builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
         }
 
-        private static void AddSwagger(this WebApplicationBuilder builder)
+        private static void addSwagger(this WebApplicationBuilder builder)
         {
             builder.Services.AddEndpointsApiExplorer(); // Active l'explorateur d'API
             builder.Services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Pizza API", Description = "API pour la gestion de pizzas !!!" });
+                c.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo { Title = "Pizza API", Description = "API pour la gestion de pizzas !!!" });
 
-                c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+                c.AddSecurityDefinition("Bearer", new Microsoft.OpenApi.Models.OpenApiSecurityScheme
                 {
                     In = ParameterLocation.Header,
                     Description = "Entête d'autorisation JWT utilisant le schéma Bearer",
@@ -42,7 +55,7 @@ namespace Pizza_API.Extensions
                             Id = "Bearer"
                         }
                     },
-                    Array.Empty<string>()
+                     new String[]{}
                 }});
             });
         }
@@ -53,7 +66,7 @@ namespace Pizza_API.Extensions
             builder.Services.Configure<AppSettings>(appSettingSection); // Lie les paramètres de configuration
             AppSettings appSettings = appSettingSection.Get<AppSettings>(); // Récupère les paramètres de configuration
 
-            var key = Encoding.ASCII.GetBytes(appSettings.SecretKey); // Convertit la clé secrète pour la signature
+            var key = Encoding.ASCII.GetBytes(appSettings.SecretKey!); // Convertit la clé secrète pour la signature
 
             // Configure l'authentification JWT
             builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)

@@ -15,7 +15,7 @@ using Pizza_API.Repositories;
 
 namespace Pizza_API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     [ApiController]
     public class AuthenticationController : ControllerBase
     {

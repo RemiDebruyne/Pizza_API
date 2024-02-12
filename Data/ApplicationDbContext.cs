@@ -75,38 +75,38 @@ namespace Pizza_API.Data
         //        };
         //    #endregion
 
-        //    #region PizzaIngredient
-        //    var pizzaIngredientList = new List<PizzaIngredient>()
-        //    {
-        //        new PizzaIngredient(){ Id = 1, PizzaId = 1, IngredientId = 1},
-        //        new PizzaIngredient(){Id = 2,PizzaId = 1,IngredientId = 2 },
-        //        new PizzaIngredient{Id = 4,PizzaId = 2,IngredientId = 1,}
-        //    };
+        #region PizzaIngredient
+        var pizzaIngredientList = new List<PizzaIngredient>()
+            {
+                new PizzaIngredient(){ Id = 1, PizzaId = 1, IngredientId = 1},
+                new PizzaIngredient(){Id = 2,PizzaId = 1,IngredientId = 2 },
+                new PizzaIngredient{Id = 4,PizzaId = 2,IngredientId = 1,}
+            };
 
-        //    //pizzaIngredientList.Add(1, new PizzaIngredient()
-        //    //{
-        //    //    Id = 1,
-        //    //    PizzaId = 1,
-        //    //    IngredientId = 1,
-        //    //});
+        pizzaIngredientList.Add(1, new PizzaIngredient()
+        {
+            Id = 1,
+            PizzaId = 1,
+            IngredientId = 1,
+        });
 
-        //    //pizzaIngredientList.Add(2, new PizzaIngredient()
-        //    //{
-        //    //    Id = 2,
-        //    //    PizzaId = 1,
-        //    //    IngredientId = 2,
-        //    //});
-
-
-        //    //pizzaIngredientList.Add(4, new PizzaIngredient
-        //    //{
-        //    //    Id = 4,
-        //    //    PizzaId = 2,
-        //    //    IngredientId = 1,
-        //    //});
+        pizzaIngredientList.Add(2, new PizzaIngredient()
+        {
+            Id = 2,
+            PizzaId = 1,
+            IngredientId = 2,
+        });
 
 
-        //    #endregion
+        pizzaIngredientList.Add(4, new PizzaIngredient
+        {
+            Id = 4,
+            PizzaId = 2,
+            IngredientId = 1,
+        });
+
+
+        #endregion
 
         //    #region Users
         //    var userList = new List<User>()
