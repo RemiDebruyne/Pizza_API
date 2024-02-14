@@ -8,6 +8,8 @@ namespace Pizza_API.Models
     {
         public string Name { get; set; }
         public string Description { get; set; }
-        public List<Pizza>? Pizzas { get; set; }
+
+        public List<Pizza> Pizzas { get; set; }
+        public List<PizzaIngredient>? PizzaIngredients{ get; set; }
     }
 }
