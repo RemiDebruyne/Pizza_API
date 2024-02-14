@@ -1,0 +1,32 @@
+﻿@page "/"
+@using Pizza_View.Models
+@using Pizza_View.Components
+@using Pizza_View.Services
+@inject ICrudService<Pizza> pizzaService
+
+<PageTitle>Index</PageTitle>
+
+<h1>Menu</h1>
+<div class=""> <!-- Menu -->
+
+@{
+    foreach (var pizza in Pizzas)
+    {
+    <PizzaCard Pizza="pizza" />
+    }
+}
+</div>
+
+<div> <!-- Shopping cart -->
+    <ShoppingCart OnclickCallBack="() =>"/>
+</div>
+
+@code {
+    public List<Pizza> Pizzas { get; set; }
+
+    protected override void OnInitialized()
+    {
+        Pizzas = pizzaService.GetAll();
+    }
+
+}
