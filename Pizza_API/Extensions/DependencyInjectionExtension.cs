@@ -22,6 +22,7 @@ namespace Pizza_API.Extensions
 
             builder.Services.AddScoped<IRepository<Ingredient>, GenericRepository<Ingredient>>();
             builder.Services.AddScoped<IRepository<Pizza>, GenericRepository<Pizza>>();
+            builder.Services.AddScoped<IRepository<PizzaIngredient>, GenericRepository<PizzaIngredient>>();
             builder.Services.AddScoped<IRepository<User>, GenericRepository<User>>();
             builder.AddAuthentication();
             builder.Services.AddDbContext<ApplicationDbContext>(option => option.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));

@@ -13,8 +13,6 @@ namespace Pizza_API.DTOs
         public bool IsSpicy { get; set; }
         public bool IsVege { get; set; }
         public string? ImagePath { get; set; }
-        public List<Ingredient>? Ingredients { get; set; }
-
-        public List<PizzaIngredient>? PizzaIngredients { get; set; }
+        public List<Ingredient> Ingredients { get; set; }
     }
 }

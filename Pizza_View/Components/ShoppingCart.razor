@@ -1,6 +1,9 @@
 ﻿@using Pizza_View.Models
 @using Pizza_View.Services
+@using System.Net.Http
 @inject ICrudService<Pizza> pizzaService
+@inject HttpClient Http
+
 
 <div class="border-3 border-secondary" style="border-radius: 5px">
     @foreach (var pizza in PizzaInCart)

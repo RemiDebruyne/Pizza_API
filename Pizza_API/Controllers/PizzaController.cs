@@ -13,19 +13,24 @@ namespace Pizza_API.Controllers
     
     public class PizzaController : ControllerBase
     {
-        private readonly IRepository<Pizza> _repository;
+        private readonly IRepository<Pizza> _pizzaRepository;
+        private readonly IRepository<Ingredient> _ingredientRepository;
+        private readonly IRepository<PizzaIngredient> _pizzaIngredientRepository;
+
         private readonly IMapper _mapper;
 
-        public PizzaController(IRepository<Pizza> repository, IMapper mapper)
+        public PizzaController(IRepository<Pizza> pizzaRepository, IRepository<Ingredient> ingredientRepository, IRepository<PizzaIngredient> joinRepository, IMapper mapper)
         {
-            _repository = repository;
+            _pizzaRepository = pizzaRepository;
+            _ingredientRepository = ingredientRepository;
+            _pizzaIngredientRepository = joinRepository;
             _mapper = mapper;
         }
 
         [HttpGet]
         public async Task<IActionResult> Getall([FromQuery] string? query)
         {
-            IEnumerable<Pizza> pizza = await _repository.GetAll();
+            IEnumerable<Pizza> pizza = await _pizzaRepository.GetAll();
             IEnumerable<PizzaDTO> PizzaDTO = _mapper.Map<IEnumerable<PizzaDTO>>(pizza)!;
 
             return Ok(PizzaDTO);
@@ -34,7 +39,17 @@ namespace Pizza_API.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById([FromRoute] int id)
         {
-            var pizza = await _repository.Get(p => p.Id == id);
+            var pizza = await _pizzaRepository.Get(p => p.Id == id);
+
+            
+
+            var pizzasIngredients = await _pizzaIngredientRepository.GetAll(pi => pi.PizzaId == id);
+
+            foreach (var ingredientOnPizza in pizzasIngredients)
+            {
+                var Ingredient = await _ingredientRepository.Get(i => i.Id == ingredientOnPizza.IngredientId);
+                pizza.Ingredients.Add(Ingredient);
+            }
 
             if (pizza == null)
                 return NotFound(new
@@ -58,7 +73,7 @@ namespace Pizza_API.Controllers
         {
             var pizza = _mapper.Map<Pizza>(pizzaDTO)!;
 
-            var pizzaAdded = await _repository.Add(pizza);
+            var pizzaAdded = await _pizzaRepository.Add(pizza);
 
             var pizzaAddedDTO = _mapper.Map<PizzaDTO>(pizzaAdded)!;
 
@@ -77,7 +92,7 @@ namespace Pizza_API.Controllers
         [HttpPost]
         public async Task<IActionResult> AddWithoutDTO([FromForm] Pizza pizza)
         {
-            await _repository.Add(pizza);
+            await _pizzaRepository.Add(pizza);
 
             if (pizza != null)
                 return CreatedAtAction(nameof(GetById),
@@ -94,7 +109,7 @@ namespace Pizza_API.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> Update([FromRoute] int id, [FromBody] PizzaDTO pizzaDTO)
         {
-            var pizzaFromDb = await _repository.Get(p => p.Id == id);
+            var pizzaFromDb = await _pizzaRepository.Get(p => p.Id == id);
 
             if (pizzaFromDb != null)
                 return NotFound("There's no pizza with this id");
@@ -103,7 +118,7 @@ namespace Pizza_API.Controllers
 
             var pizza = _mapper.Map<Pizza>(pizzaDTO)!;
 
-            var pizzaUpdated = await _repository.Update(pizza);
+            var pizzaUpdated = await _pizzaRepository.Update(pizza);
 
             var pizzaUpdatedDTO = _mapper.Map<PizzaDTO>(pizzaUpdated);
 
@@ -121,11 +136,11 @@ namespace Pizza_API.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete([FromRoute] int id)
         {
-            var pizza = await _repository.Get(p => p.Id == id);
+            var pizza = await _pizzaRepository.Get(p => p.Id == id);
 
             if (pizza != null)
             {
-                await _repository.Delete(id);
+                await _pizzaRepository.Delete(id);
                 return Ok("The pizza was deleted");
             }
 

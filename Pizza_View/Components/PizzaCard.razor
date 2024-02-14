@@ -1,6 +1,7 @@
 ﻿@using Pizza_View.Models
 @using Pizza_View.Services
 @inject ICrudService<Pizza> pizzaService
+@inject Blazored.SessionStorage.ISessionStorageService sessionStorage
 
 
 <div class="card" style="width: 18rem;">
@@ -42,6 +43,12 @@
         ListPizza = pizzaService.GetAll();
     }
 
+    protected override async Task OnInitializedAsync()
+    {
+        await sessionStorage.SetItemAsync("name", "John Smith");
+        var name = await sessionStorage.GetItemAsync<string>("name");
+    }
+
 
     public string DisplayIngredient(Pizza pizza)
     {
@@ -54,8 +61,8 @@
         return ingredientList;
     }
 
-    public void AddToCart()
+    public async Task AddToCart()
     {
-        var
+        await sessionStorage.SetItemAsync("cart", "dqsd");
     }
 }
