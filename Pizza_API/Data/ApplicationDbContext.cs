@@ -20,9 +20,9 @@ namespace Pizza_API.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Pizza>()
-                .HasMany(e => e.Ingredients)
-                .WithMany(e => e.Pizzas)
-                .UsingEntity<PizzaIngredient>();
+                        .HasMany(e => e.PizzaIngredients)
+                        .WithOne(e => e.PizzaId)
+                        .UsingEntity<PizzaIngredient>();
 
             #region ingredient
             var ingredientsList = new List<Ingredient>
@@ -84,8 +84,8 @@ namespace Pizza_API.Data
             {
                 new PizzaIngredient(){ Id = 1, PizzaId = 1, IngredientId = 1},
                 new PizzaIngredient(){Id = 2,PizzaId = 1,IngredientId = 2 },
-                new PizzaIngredient{Id = 3,PizzaId = 2,IngredientId = 1,},
-                new PizzaIngredient{Id = 4,PizzaId = 2,IngredientId = 2,}
+                new PizzaIngredient{Id = 3,PizzaId = 2,IngredientId = 3,},
+
             };
 
             #endregion

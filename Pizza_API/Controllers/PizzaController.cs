@@ -39,16 +39,17 @@ namespace Pizza_API.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById([FromRoute] int id)
         {
-            var pizza = await _pizzaRepository.Get(p => p.Id == id);
+            Pizza pizza = await _pizzaRepository.Get(p => p.Id == id);
 
-            
+            PizzaDTO pizzaDTO = _mapper.Map<PizzaDTO>(pizza)!;
 
-            var pizzasIngredients = await _pizzaIngredientRepository.GetAll(pi => pi.PizzaId == id);
+            IEnumerable<PizzaIngredient> pizzasIngredients = await _pizzaIngredientRepository.GetAll(pi => pi.PizzaId == id);
+
 
             foreach (var ingredientOnPizza in pizzasIngredients)
             {
                 var Ingredient = await _ingredientRepository.Get(i => i.Id == ingredientOnPizza.IngredientId);
-                pizza.Ingredients.Add(Ingredient);
+                pizzaDTO.Ingredients.Add(Ingredient);
             }
 
             if (pizza == null)
@@ -57,12 +58,11 @@ namespace Pizza_API.Controllers
                     Message = "No pizza has this id"
                 });
 
-            PizzaDTO pizzaDTO = _mapper.Map<PizzaDTO>(pizza)!;
 
             return Ok(new
             {
                 Message = "Pizza found",
-                Pizza = pizzaDTO
+                Pizza = pizzaDTO,
             });
 
 

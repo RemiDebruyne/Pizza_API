@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\remid\\source\\repos\\Pizza_app\\Pizza_View\\Pizza_View.csproj": {}
+    "C:\\Users\\Administrateur\\source\\repos\\TP_Pizza\\Pizza_View\\Pizza_View.csproj": {}
   },
   "projects": {
-    "C:\\Users\\remid\\source\\repos\\Pizza_app\\Pizza_View\\Pizza_View.csproj": {
+    "C:\\Users\\Administrateur\\source\\repos\\TP_Pizza\\Pizza_View\\Pizza_View.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\remid\\source\\repos\\Pizza_app\\Pizza_View\\Pizza_View.csproj",
+        "projectUniqueName": "C:\\Users\\Administrateur\\source\\repos\\TP_Pizza\\Pizza_View\\Pizza_View.csproj",
         "projectName": "Pizza_View",
-        "projectPath": "C:\\Users\\remid\\source\\repos\\Pizza_app\\Pizza_View\\Pizza_View.csproj",
-        "packagesPath": "C:\\Users\\remid\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\remid\\source\\repos\\Pizza_app\\Pizza_View\\obj\\",
+        "projectPath": "C:\\Users\\Administrateur\\source\\repos\\TP_Pizza\\Pizza_View\\Pizza_View.csproj",
+        "packagesPath": "C:\\Users\\Administrateur\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Administrateur\\source\\repos\\TP_Pizza\\Pizza_View\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\remid\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Administrateur\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -40,6 +40,10 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Blazor.Bootstrap": {
+              "target": "Package",
+              "version": "[1.11.1, )"
+            },
             "Microsoft.AspNetCore.Components.WebAssembly": {
               "target": "Package",
               "version": "[6.0.24, )"
@@ -64,7 +68,7 @@
             "Microsoft.NET.Sdk.WebAssembly.Pack": {
               "suppressParent": "All",
               "target": "Package",
-              "version": "[8.0.1, )",
+              "version": "[8.0.0, )",
               "autoReferenced": true
             }
           },
@@ -82,7 +86,7 @@
           "downloadDependencies": [
             {
               "name": "Microsoft.NETCore.App.Runtime.Mono.browser-wasm",
-              "version": "[6.0.26, 6.0.26]"
+              "version": "[6.0.25, 6.0.25]"
             }
           ],
           "frameworkReferences": {
@@ -90,7 +94,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
         }
       },
       "runtimes": {

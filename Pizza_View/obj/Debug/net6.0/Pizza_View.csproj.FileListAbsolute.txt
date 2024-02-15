@@ -614,12 +614,7 @@ C:\Users\Administrateur\source\repos\TP_Pizza\Pizza_View\obj\Debug\net6.0\scoped
 C:\Users\Administrateur\source\repos\TP_Pizza\Pizza_View\obj\Debug\net6.0\scopedcss\bundle\Pizza_View.styles.css
 C:\Users\Administrateur\source\repos\TP_Pizza\Pizza_View\obj\Debug\net6.0\scopedcss\projectbundle\Pizza_View.bundle.scp.css
 C:\Users\Administrateur\source\repos\TP_Pizza\Pizza_View\obj\Debug\net6.0\compressed\jqnk8lrj4t.gz
-C:\Users\Administrateur\source\repos\TP_Pizza\Pizza_View\obj\Debug\net6.0\compressed\n2a7mni2it.gz
-C:\Users\Administrateur\source\repos\TP_Pizza\Pizza_View\obj\Debug\net6.0\compressed\e1zrt3da8c.gz
-C:\Users\Administrateur\source\repos\TP_Pizza\Pizza_View\obj\Debug\net6.0\compressed\3zxfuov2mm.gz
-C:\Users\Administrateur\source\repos\TP_Pizza\Pizza_View\obj\Debug\net6.0\compressed\h2sq1txkrz.gz
 C:\Users\Administrateur\source\repos\TP_Pizza\Pizza_View\obj\Debug\net6.0\compressed\pxamvf7mtc.gz
-C:\Users\Administrateur\source\repos\TP_Pizza\Pizza_View\obj\Debug\net6.0\compressed\3vh273dhdk.gz
 C:\Users\Administrateur\source\repos\TP_Pizza\Pizza_View\obj\Debug\net6.0\compressed\jwdax2evpf.gz
 C:\Users\Administrateur\source\repos\TP_Pizza\Pizza_View\obj\Debug\net6.0\compressed\o3aywxmm5n.gz
 C:\Users\Administrateur\source\repos\TP_Pizza\Pizza_View\obj\Debug\net6.0\compressed\jg4awih425.gz
@@ -634,7 +629,6 @@ C:\Users\Administrateur\source\repos\TP_Pizza\Pizza_View\obj\Debug\net6.0\compre
 C:\Users\Administrateur\source\repos\TP_Pizza\Pizza_View\obj\Debug\net6.0\compressed\c5xks325lp.gz
 C:\Users\Administrateur\source\repos\TP_Pizza\Pizza_View\obj\Debug\net6.0\compressed\80zlt4rbe1.gz
 C:\Users\Administrateur\source\repos\TP_Pizza\Pizza_View\obj\Debug\net6.0\compressed\niu84c24lb.gz
-C:\Users\Administrateur\source\repos\TP_Pizza\Pizza_View\obj\Debug\net6.0\compressed\1hhuapza0m.gz
 C:\Users\Administrateur\source\repos\TP_Pizza\Pizza_View\obj\Debug\net6.0\compressed\000sl4nmpj.gz
 C:\Users\Administrateur\source\repos\TP_Pizza\Pizza_View\obj\Debug\net6.0\compressed\pll7aigamr.gz
 C:\Users\Administrateur\source\repos\TP_Pizza\Pizza_View\obj\Debug\net6.0\compressed\kreezpt0ag.gz
@@ -817,3 +811,14 @@ C:\Users\Administrateur\source\repos\TP_Pizza\Pizza_View\obj\Debug\net6.0\Pizza_
 C:\Users\Administrateur\source\repos\TP_Pizza\Pizza_View\obj\Debug\net6.0\refint\Pizza_View.dll
 C:\Users\Administrateur\source\repos\TP_Pizza\Pizza_View\obj\Debug\net6.0\Pizza_View.pdb
 C:\Users\Administrateur\source\repos\TP_Pizza\Pizza_View\obj\Debug\net6.0\ref\Pizza_View.dll
+C:\Users\Administrateur\source\repos\TP_Pizza\Pizza_View\obj\Debug\net6.0\Pizza_View.sourcelink.json
+C:\Users\Administrateur\source\repos\TP_Pizza\Pizza_View\bin\Debug\net6.0\wwwroot\_framework\BlazorBootstrap.dll
+C:\Users\Administrateur\source\repos\TP_Pizza\Pizza_View\bin\Debug\net6.0\wwwroot\_framework\BlazorBootstrap.dll.gz
+C:\Users\Administrateur\source\repos\TP_Pizza\Pizza_View\bin\Debug\net6.0\BlazorBootstrap.dll
+C:\Users\Administrateur\source\repos\TP_Pizza\Pizza_View\obj\Debug\net6.0\compressed\kcqsniefpo.gz
+C:\Users\Administrateur\source\repos\TP_Pizza\Pizza_View\obj\Debug\net6.0\compressed\p0zt0vmzct.gz
+C:\Users\Administrateur\source\repos\TP_Pizza\Pizza_View\obj\Debug\net6.0\compressed\jx62sz64j4.gz
+C:\Users\Administrateur\source\repos\TP_Pizza\Pizza_View\obj\Debug\net6.0\compressed\pwov8zutas.gz
+C:\Users\Administrateur\source\repos\TP_Pizza\Pizza_View\obj\Debug\net6.0\compressed\19gybzv99p.gz
+C:\Users\Administrateur\source\repos\TP_Pizza\Pizza_View\obj\Debug\net6.0\compressed\wjnnd2gi83.gz
+C:\Users\Administrateur\source\repos\TP_Pizza\Pizza_View\obj\Debug\net6.0\compressed\2121t4x7ns.gz

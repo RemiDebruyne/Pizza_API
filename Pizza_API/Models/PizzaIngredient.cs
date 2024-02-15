@@ -4,5 +4,6 @@
     {
         public int PizzaId { get; set; }
         public int IngredientId { get; set; }
+
     }
 }

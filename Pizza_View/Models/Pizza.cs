@@ -13,5 +13,10 @@ namespace Pizza_View.Models
         public string? ImagePath { get; set; }
         public List<Ingredient>? Ingredients { get; set; }
 
+        public override string ToString()
+        {
+            return Name;
+        }
+
     }
 }

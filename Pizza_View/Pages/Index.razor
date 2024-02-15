@@ -3,30 +3,91 @@
 @using Pizza_View.Components
 @using Pizza_View.Services
 @inject ICrudService<Pizza> pizzaService
+@using BlazorBootstrap;
 
 <PageTitle>Index</PageTitle>
 
 <h1>Menu</h1>
-<div class=""> <!-- Menu -->
 
-@{
-    foreach (var pizza in Pizzas)
-    {
-    <PizzaCard Pizza="pizza" />
-    }
-}
-</div>
+<Modal @ref="modal" Title="Modal title">
+    <BodyTemplate>
+        Modal body text goes here.
+    </BodyTemplate>
+    <FooterTemplate>
+        <Button Color="ButtonColor.Secondary" @onclick="OnHideModalClick">Close</Button>
+        <Button Color="ButtonColor.Primary">Save changes</Button>
+    </FooterTemplate>
+</Modal>
 
-<div> <!-- Shopping cart -->
-    <ShoppingCart OnclickCallBack="() =>"/>
+<Button Color="ButtonColor.Primary" @onclick="OnShowModalClick">Show Modal</Button>
+
+
+<div class="d-flex" style="gap: 20rem;">
+    <div class="d-flex flex-wrap gap-3">
+        <!-- Menu -->
+        @{
+            foreach (var pizza in Pizzas)
+            {
+                <PizzaCard Pizza="pizza" CallbackAddPizza="AddToCart" CallBackDeletePizza="RemoveFromCart" />
+            }
+        }
+    </div>
+    <div>
+        <ShoppingCart Cart="Cart" />
+    </div>
 </div>
 
 @code {
+    public bool IsAdmin { get; set; }
+
     public List<Pizza> Pizzas { get; set; }
+
+    public Dictionary<Pizza, int> Cart { get; set; } = new Dictionary<Pizza, int>();
 
     protected override void OnInitialized()
     {
         Pizzas = pizzaService.GetAll();
     }
 
+    public void AddToCart(Pizza pizza)
+    {
+        if (!Cart.ContainsKey(pizza))
+            Cart.Add(pizza, 1);
+
+        else
+            Cart[pizza]++;
+
+        foreach (var item in Cart)
+        {
+            Console.WriteLine(item.Value);
+        }
+    }
+
+    public void RemoveFromCart(Pizza pizza)
+    {
+
+        if (Cart.ContainsKey(pizza))
+        {
+            Cart[pizza]--;
+            if (Cart[pizza] == 0)
+                Cart.Remove(pizza);
+        }
+    }
+
+    public void ChangeAdminStatus()
+    {
+        IsAdmin = !IsAdmin;
+    }
+
+    private Modal modal;
+
+    private async Task OnShowModalClick()
+    {
+        await modal?.ShowAsync();
+    }
+
+    private async Task OnHideModalClick()
+    {
+        await modal?.HideAsync();
+    }
 }
