@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Administrateur\\source\\repos\\TP_Pizza\\Pizza_View\\Pizza_View.csproj": {}
+    "C:\\Users\\remid\\source\\repos\\Pizza_app\\Pizza_View\\Pizza_View.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Administrateur\\source\\repos\\TP_Pizza\\Pizza_View\\Pizza_View.csproj": {
+    "C:\\Users\\remid\\source\\repos\\Pizza_app\\Pizza_View\\Pizza_View.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Administrateur\\source\\repos\\TP_Pizza\\Pizza_View\\Pizza_View.csproj",
+        "projectUniqueName": "C:\\Users\\remid\\source\\repos\\Pizza_app\\Pizza_View\\Pizza_View.csproj",
         "projectName": "Pizza_View",
-        "projectPath": "C:\\Users\\Administrateur\\source\\repos\\TP_Pizza\\Pizza_View\\Pizza_View.csproj",
-        "packagesPath": "C:\\Users\\Administrateur\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Administrateur\\source\\repos\\TP_Pizza\\Pizza_View\\obj\\",
+        "projectPath": "C:\\Users\\remid\\source\\repos\\Pizza_app\\Pizza_View\\Pizza_View.csproj",
+        "packagesPath": "C:\\Users\\remid\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\remid\\source\\repos\\Pizza_app\\Pizza_View\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Administrateur\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\remid\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -83,12 +83,6 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.NETCore.App.Runtime.Mono.browser-wasm",
-              "version": "[6.0.25, 6.0.25]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"

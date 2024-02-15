@@ -20,8 +20,8 @@ namespace Pizza_API.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Pizza>()
-                        .HasMany(e => e.PizzaIngredients)
-                        .WithOne(e => e.PizzaId)
+                        .HasMany(e => e.Ingredients)
+                        .WithMany(e => e.Pizzas)
                         .UsingEntity<PizzaIngredient>();
 
             #region ingredient

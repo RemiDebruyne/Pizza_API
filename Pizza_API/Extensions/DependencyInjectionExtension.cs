@@ -21,7 +21,7 @@ namespace Pizza_API.Extensions
             builder.addSwagger();
 
             builder.Services.AddScoped<IRepository<Ingredient>, GenericRepository<Ingredient>>();
-            builder.Services.AddScoped<IRepository<Pizza>, GenericRepository<Pizza>>();
+            builder.Services.AddScoped<IRepository<Pizza>, PizzaRepository>();
             builder.Services.AddScoped<IRepository<PizzaIngredient>, GenericRepository<PizzaIngredient>>();
             builder.Services.AddScoped<IRepository<User>, GenericRepository<User>>();
             builder.AddAuthentication();

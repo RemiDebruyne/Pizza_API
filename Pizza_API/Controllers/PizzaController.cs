@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using Pizza_API.DTOs;
 using Pizza_API.Models;
 using Pizza_API.Repositories;
@@ -43,68 +44,32 @@ namespace Pizza_API.Controllers
 
             PizzaDTO pizzaDTO = _mapper.Map<PizzaDTO>(pizza)!;
 
-            IEnumerable<PizzaIngredient> pizzasIngredients = await _pizzaIngredientRepository.GetAll(pi => pi.PizzaId == id);
+            //IEnumerable<PizzaIngredient> pizzasIngredients = await _pizzaIngredientRepository.GetAll(pi => pi.PizzaId == id);
+
+            //foreach (var ingredientOnPizza in pizzasIngredients)
+            //{
+            //    var Ingredient = await _ingredientRepository.Get(i => i.Id == ingredientOnPizza.IngredientId);
+            //    pizzaDTO.Ingredients.Add(Ingredient);
+            //}
 
 
-            foreach (var ingredientOnPizza in pizzasIngredients)
-            {
-                var Ingredient = await _ingredientRepository.Get(i => i.Id == ingredientOnPizza.IngredientId);
-                pizzaDTO.Ingredients.Add(Ingredient);
-            }
-
-            if (pizza == null)
-                return NotFound(new
+            if (pizza != null)
+                return Ok(new
                 {
-                    Message = "No pizza has this id"
+                    Message = "Pizza found",
+                    Pizza = pizzaDTO,
                 });
 
 
-            return Ok(new
+            return NotFound(new
             {
-                Message = "Pizza found",
-                Pizza = pizzaDTO,
+                Message = "No pizza has this id"
             });
 
 
         }
 
-        [HttpPost("with_DTO")]
-        public async Task<IActionResult> Add([FromForm] PizzaDTO pizzaDTO)
-        {
-            var pizza = _mapper.Map<Pizza>(pizzaDTO)!;
 
-            var pizzaAdded = await _pizzaRepository.Add(pizza);
-
-            var pizzaAddedDTO = _mapper.Map<PizzaDTO>(pizzaAdded)!;
-
-            if (pizzaAdded != null)
-                return CreatedAtAction(nameof(GetById),
-                                            new { id = pizzaDTO.Id },
-                                            new
-                                            {
-                                                Message = "The pizza was added to the database",
-                                                Pizza = pizzaAddedDTO
-                                            });
-
-            return BadRequest("Oops something went wrong");
-        }
-
-        [HttpPost]
-        public async Task<IActionResult> AddWithoutDTO([FromForm] Pizza pizza)
-        {
-            await _pizzaRepository.Add(pizza);
-
-            if (pizza != null)
-                return CreatedAtAction(nameof(GetById),
-                                            new { id = pizza.Id },
-                                            new
-                                            {
-                                                Message = "The pizza was added to the database",
-                                                Pizza = pizza
-                                            });
-            return BadRequest("Oops something went wrong");
-
-        }
 
         [HttpPut("{id}")]
         public async Task<IActionResult> Update([FromRoute] int id, [FromBody] PizzaDTO pizzaDTO)

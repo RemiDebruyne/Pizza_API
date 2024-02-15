@@ -13,47 +13,47 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = browser
 build_property.RootNamespace = Pizza_View
 build_property.RootNamespace = Pizza_View
-build_property.ProjectDir = C:\Users\Administrateur\source\repos\TP_Pizza\Pizza_View\
+build_property.ProjectDir = C:\Users\remid\source\repos\Pizza_app\Pizza_View\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\Administrateur\source\repos\TP_Pizza\Pizza_View
+build_property.MSBuildProjectDirectory = C:\Users\remid\source\repos\Pizza_app\Pizza_View
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/Administrateur/source/repos/TP_Pizza/Pizza_View/App.razor]
+[C:/Users/remid/source/repos/Pizza_app/Pizza_View/App.razor]
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Administrateur/source/repos/TP_Pizza/Pizza_View/Components/AddPizzaForm.razor]
+[C:/Users/remid/source/repos/Pizza_app/Pizza_View/Components/AddPizzaForm.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBZGRQaXp6YUZvcm0ucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Administrateur/source/repos/TP_Pizza/Pizza_View/Components/PizzaCard.razor]
+[C:/Users/remid/source/repos/Pizza_app/Pizza_View/Components/PizzaCard.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQaXp6YUNhcmQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Administrateur/source/repos/TP_Pizza/Pizza_View/Components/ShoppingCart.razor]
+[C:/Users/remid/source/repos/Pizza_app/Pizza_View/Components/ShoppingCart.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xTaG9wcGluZ0NhcnQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Administrateur/source/repos/TP_Pizza/Pizza_View/Pages/Index.razor]
+[C:/Users/remid/source/repos/Pizza_app/Pizza_View/Pages/Index.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Administrateur/source/repos/TP_Pizza/Pizza_View/Shared/SurveyPrompt.razor]
+[C:/Users/remid/source/repos/Pizza_app/Pizza_View/Shared/SurveyPrompt.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFN1cnZleVByb21wdC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Administrateur/source/repos/TP_Pizza/Pizza_View/_Imports.razor]
+[C:/Users/remid/source/repos/Pizza_app/Pizza_View/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Administrateur/source/repos/TP_Pizza/Pizza_View/Shared/MainLayout.razor]
+[C:/Users/remid/source/repos/Pizza_app/Pizza_View/Shared/MainLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE1haW5MYXlvdXQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-ysw19t2l1p
 
-[C:/Users/Administrateur/source/repos/TP_Pizza/Pizza_View/Shared/NavMenu.razor]
+[C:/Users/remid/source/repos/Pizza_app/Pizza_View/Shared/NavMenu.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE5hdk1lbnUucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-rkq7j8jyg5

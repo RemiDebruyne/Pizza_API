@@ -14,7 +14,7 @@ namespace Pizza_API.Repositories
         {
             _dbContext = dbContext;   
         }
-        async public Task<T> Add(T entity)
+        public virtual async Task<T> Add(T entity)
         {
            var addEntry = await _dbContext.Set<T>().AddAsync(entity);
 
@@ -26,7 +26,7 @@ namespace Pizza_API.Repositories
             return null;
         }
 
-        async public Task<bool> Delete(int id)
+        async virtual public Task<bool> Delete(int id)
         {
             var entity = await _dbContext.Set<T>().FirstOrDefaultAsync(e => e.Id == id);
 
@@ -37,23 +37,23 @@ namespace Pizza_API.Repositories
             return await _dbContext.SaveChangesAsync() > 0;
         }
 
-        async public Task<T?> Get(Expression<Func<T, bool>> predicate)
+        async virtual public Task<T?> Get(Expression<Func<T, bool>> predicate)
         {
            return await _dbContext.Set<T>().FirstOrDefaultAsync(predicate);
         }
 
         // Pourquoi pas de await
-        async public Task<IEnumerable<T?>> GetAll()
+        async virtual public Task<IEnumerable<T?>> GetAll()
         {
             return _dbContext.Set<T>();
         }
         // Pourquoi pas de await
-        async public Task<IEnumerable<T?>> GetAll(Expression<Func<T, bool>> predicate)
+        async virtual public Task<IEnumerable<T?>> GetAll(Expression<Func<T, bool>> predicate)
         {
             return  _dbContext.Set<T>().Where(predicate);
         }
 
-        async public Task<T> Update(T entity)
+        async virtual public Task<T> Update(T entity)
         {
             // Récupère la valeur de ma db pour comparer à la nouvelle
             var entityFromDb = await Get(e => e.Id == entity.Id);

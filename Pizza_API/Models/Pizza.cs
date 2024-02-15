@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace Pizza_API.Models
 {
@@ -13,8 +14,9 @@ namespace Pizza_API.Models
         public bool? IsSpicy { get; set; }
         public bool? IsVege { get; set; }
         public string? ImagePath { get; set; }
-        //public List<Ingredient>? Ingredients {get; set;}
-        public List<PizzaIngredient>? PizzaIngredients { get; set; }
+        [JsonIgnore]
+        public List<Ingredient>? Ingredients { get; set; }
+        //public List<PizzaIngredient>? PizzaIngredients { get; set; }
 
     }
 }
