@@ -15,26 +15,22 @@ namespace Pizza_API.Controllers
     public class PizzaController : ControllerBase
     {
         private readonly IRepository<Pizza> _pizzaRepository;
-        private readonly IRepository<Ingredient> _ingredientRepository;
-        private readonly IRepository<PizzaIngredient> _pizzaIngredientRepository;
+
 
         private readonly IMapper _mapper;
 
-        public PizzaController(IRepository<Pizza> pizzaRepository, IRepository<Ingredient> ingredientRepository, IRepository<PizzaIngredient> joinRepository, IMapper mapper)
+        public PizzaController(IRepository<Pizza> pizzaRepository)
         {
             _pizzaRepository = pizzaRepository;
-            _ingredientRepository = ingredientRepository;
-            _pizzaIngredientRepository = joinRepository;
-            _mapper = mapper;
+
         }
 
         [HttpGet]
-        public async Task<IActionResult> Getall([FromQuery] string? query)
+        public async Task<IActionResult> Getall()
         {
             IEnumerable<Pizza> pizza = await _pizzaRepository.GetAll();
-            IEnumerable<PizzaDTO> PizzaDTO = _mapper.Map<IEnumerable<PizzaDTO>>(pizza)!;
 
-            return Ok(PizzaDTO);
+            return Ok(pizza);
         }
 
         [HttpGet("{id}")]
@@ -42,22 +38,12 @@ namespace Pizza_API.Controllers
         {
             Pizza pizza = await _pizzaRepository.Get(p => p.Id == id);
 
-            PizzaDTO pizzaDTO = _mapper.Map<PizzaDTO>(pizza)!;
-
-            //IEnumerable<PizzaIngredient> pizzasIngredients = await _pizzaIngredientRepository.GetAll(pi => pi.PizzaId == id);
-
-            //foreach (var ingredientOnPizza in pizzasIngredients)
-            //{
-            //    var Ingredient = await _ingredientRepository.Get(i => i.Id == ingredientOnPizza.IngredientId);
-            //    pizzaDTO.Ingredients.Add(Ingredient);
-            //}
-
 
             if (pizza != null)
                 return Ok(new
                 {
                     Message = "Pizza found",
-                    Pizza = pizzaDTO,
+                    Pizza = pizza,
                 });
 
 
@@ -69,29 +55,42 @@ namespace Pizza_API.Controllers
 
         }
 
+        [HttpPost]
+        public async Task<IActionResult> Add([FromBody] Pizza pizza)
+        {
+
+            var pizzaAdded = await _pizzaRepository.Add(pizza);
+
+            if (pizzaAdded != null)
+                return CreatedAtAction(nameof(GetById),
+                                            new { id = pizza.Id },
+                                            new
+                                            {
+                                                Message = "The pizza was added to the database",
+                                                Pizza = pizza
+                                            });
+
+            return BadRequest("Oops something went wrong");
+        }
+
 
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> Update([FromRoute] int id, [FromBody] PizzaDTO pizzaDTO)
+        public async Task<IActionResult> Update([FromRoute] int id, [FromBody] Pizza pizza)
         {
             var pizzaFromDb = await _pizzaRepository.Get(p => p.Id == id);
 
             if (pizzaFromDb != null)
                 return NotFound("There's no pizza with this id");
 
-            pizzaDTO.Id = id;
-
-            var pizza = _mapper.Map<Pizza>(pizzaDTO)!;
-
             var pizzaUpdated = await _pizzaRepository.Update(pizza);
 
-            var pizzaUpdatedDTO = _mapper.Map<PizzaDTO>(pizzaUpdated);
 
             if (pizzaUpdated != null)
                 return Ok(new
                 {
                     Message = "The pizza was updated properly.",
-                    Pizza = pizzaUpdatedDTO
+                    Pizza = pizzaUpdated
                 });
 
             return BadRequest("Oops something went wrong...");

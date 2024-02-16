@@ -27,9 +27,8 @@ namespace Pizza_API.Controllers
         {
             IEnumerable<Ingredient> ingredients = await _repository.GetAll();
 
-            IEnumerable<IngredientDTO> ingredientDTO = _mapper.Map<IEnumerable<IngredientDTO>>(ingredients);
 
-            return Ok(ingredientDTO);
+            return Ok(ingredients);
         }
 
         [HttpGet("{id}")]
@@ -43,23 +42,20 @@ namespace Pizza_API.Controllers
                     Message = "No ingredient has this id"
                 });
 
-            IngredientDTO ingredientDTO = _mapper.Map<IngredientDTO>(ingredient)!;
 
             return Ok(new
             {
                 Message = "ingredient found",
-                Ingredient = ingredientDTO
+                Ingredient = ingredient
             });
         }
 
 
         [HttpPost]
-        public async Task<IActionResult> Add([FromForm] IngredientDTO ingredientDTO)
+        public async Task<IActionResult> Add([FromForm] Ingredient ingredient)
         {
-            var ingredient = _mapper.Map<Ingredient>(ingredientDTO);
             var ingredientAdded = await _repository.Add(ingredient);
 
-            var IngredientAddedDTO = _mapper.Map<IngredientDTO>(ingredientAdded);
             if (ingredientAdded != null)
                 return CreatedAtAction(nameof(GetById),
                                             new { id = ingredient.Id },

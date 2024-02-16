@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Pizza_API.Data;
 
@@ -11,9 +12,10 @@ using Pizza_API.Data;
 namespace Pizza_API.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240216080736_sdqjnfgeqiogre")]
+    partial class sdqjnfgeqiogre
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -312,26 +314,16 @@ namespace Pizza_API.Migrations
             modelBuilder.Entity("Pizza_API.Models.PizzaIngredient", b =>
                 {
                     b.HasOne("Pizza_API.Models.Ingredient", null)
-                        .WithMany("PizzaIngredients")
+                        .WithMany()
                         .HasForeignKey("IngredientId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("Pizza_API.Models.Pizza", null)
-                        .WithMany("PizzaIngredients")
+                        .WithMany()
                         .HasForeignKey("PizzaId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("Pizza_API.Models.Ingredient", b =>
-                {
-                    b.Navigation("PizzaIngredients");
-                });
-
-            modelBuilder.Entity("Pizza_API.Models.Pizza", b =>
-                {
-                    b.Navigation("PizzaIngredients");
                 });
 #pragma warning restore 612, 618
         }

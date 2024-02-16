@@ -9,6 +9,7 @@ using System;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.InjectDependencies();
+builder.Services.AddHttpClient();
 
 var app = builder.Build();
 

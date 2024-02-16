@@ -13,7 +13,6 @@ namespace Pizza_API.Data
         public DbSet<User> Users { get; set; }
         public DbSet<Pizza> Pizzas { get; set; }
         public DbSet<Ingredient> Ingredients { get; set; }
-
         public DbSet<PizzaIngredient> PizzaIngredients { get; set; }
 
         #region DataSeeding
