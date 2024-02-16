@@ -60,6 +60,11 @@
         @{
             foreach (var pizza in Pizzas)
             {
+                if(pizza is null)
+                {
+                    
+                <p>La pizza est null</p>
+                }
                 <PizzaCard Pizza="pizza" CallbackAddPizza="AddToCart" CallBackDeletePizza="RemoveFromCart" />
             }
         }

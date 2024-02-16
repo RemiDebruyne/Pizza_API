@@ -30,6 +30,7 @@
 
 @code {
 
+    string ingredientsString = string.Join(", ", Pizza.Ingredients);
     [Parameter]
     public EventCallback<Pizza> CallbackAddPizza { get; set; }
     [Parameter]
@@ -52,6 +53,8 @@
     public string DisplayIngredient(Pizza pizza)
     {
         string ingredientList = "";
+
+        if(pizza.Ingredients.Count > 0)
         foreach(var ingredient in pizza.Ingredients)
         {
             ingredientList += ingredient.Name + ", ";
