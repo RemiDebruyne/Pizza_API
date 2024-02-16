@@ -1,8 +1,7 @@
-﻿using Pizza_API.Validator;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Pizza_API.Models
+namespace Pizza_Core.Models
 {
     [Table("users")]
     public class User : BaseModel

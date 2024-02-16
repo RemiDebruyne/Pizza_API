@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Pizza_API.Data;
-using Pizza_API.Models;
+using Pizza_Core.Models;
 using System.Configuration;
 using System.Linq;
 using System.Linq.Expressions;

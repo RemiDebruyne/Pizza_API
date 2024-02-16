@@ -1,5 +1,6 @@
 ﻿using System.Linq.Expressions;
-using Pizza_API.Models;
+using Pizza_Core.Models;
+
 
 namespace Pizza_API.Repositories
 {

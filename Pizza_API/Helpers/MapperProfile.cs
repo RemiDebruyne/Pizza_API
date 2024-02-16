@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
-using Pizza_API.DTOs;
-using Pizza_API.Models;
+using Pizza_Core.DTOs;
+
+using Pizza_Core.Models;
+
 
 namespace Pizza_API.Helpers
 {

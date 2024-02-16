@@ -1,9 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
 using Pizza_API.Validator;
 
-namespace Pizza_API.DTOs
+namespace Pizza_Core.DTOs
 {
 
     public class LoginRequestDTO 

@@ -1,7 +1,5 @@
-﻿@using Pizza_View.Models
-@using Pizza_View.Services
+﻿@using Pizza_Core.Models
 @using System.Net.Http
-@inject ICrudService<Pizza> pizzaService
 @inject HttpClient Http
 
 
@@ -22,30 +20,31 @@
         </div>
     }
     <p>Total: @TotalPrice €</p>
-    <bouton class="btn btn-danger" @onclick="EmptyCart">Vider le panier</bouton>
+    <bouton class="btn btn-danger" @onclick="OnclickEmpty">Vider le panier</bouton>
 </div>
 
 @code {
 
     [Parameter]
     public Dictionary<Pizza, int> Cart { get; set; }
-
-    public int TotalPrice { get; set; }
-
-    public void EmptyCart()
-    {
-        Cart.Clear();
-        TotalPrice = 0;
-    }
+    [Parameter]
+    public decimal TotalPrice { get; set; }
+    [Parameter]
+    public EventCallback<Dictionary<Pizza, int>> DictCallBack { get; set; }
 
     protected override void OnParametersSet()
     {
-        var price = 0;
+        decimal price = 0;
         foreach (var item in Cart)
         {
             price += (item.Key.Price * item.Value);
         }
 
         TotalPrice = price;
+    }
+
+    public async void OnclickEmpty()
+    {
+        await DictCallBack.InvokeAsync(Cart);
     }
 }

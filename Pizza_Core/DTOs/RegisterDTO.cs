@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Pizza_API.DTOs
+namespace Pizza_Core.DTOs
 {
     public class RegisterDTO
     {

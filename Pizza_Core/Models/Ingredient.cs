@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.Json.Serialization;
 
-namespace Pizza_API.Models
+namespace Pizza_Core.Models
 {
     [Table("ingredients")]
     public class Ingredient : BaseModel

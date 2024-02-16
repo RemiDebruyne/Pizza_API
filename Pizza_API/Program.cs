@@ -1,8 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using Pizza_API.Data;
 using Pizza_API.Extensions;
-using Pizza_API.Models;
 using Pizza_API.Repositories;
 using System;
 

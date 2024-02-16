@@ -1,4 +1,4 @@
-﻿namespace Pizza_API.Models
+﻿namespace Pizza_Core.Models
 {
     public abstract class BaseModel
     {

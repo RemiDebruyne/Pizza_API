@@ -1,25 +1,57 @@
 ﻿@page "/"
-@using Pizza_View.Models
 @using Pizza_View.Components
-@using Pizza_View.Services
-@inject ICrudService<Pizza> pizzaService
 @using BlazorBootstrap;
+@inject HttpClient Http
+
 
 <PageTitle>Index</PageTitle>
 
 <h1>Menu</h1>
 
-<Modal @ref="modal" Title="Modal title">
-    <BodyTemplate>
-        Modal body text goes here.
-    </BodyTemplate>
-    <FooterTemplate>
-        <Button Color="ButtonColor.Secondary" @onclick="OnHideModalClick">Close</Button>
-        <Button Color="ButtonColor.Primary">Save changes</Button>
-    </FooterTemplate>
-</Modal>
 
-<Button Color="ButtonColor.Primary" @onclick="OnShowModalClick">Show Modal</Button>
+
+<Modal @ref="modal" title="Ajouter une pizza" Size="ModalSize.ExtraLarge">
+    <BodyTemplate>
+        <EditForm Model="Pizza" OnSubmit="PostPizza" enctype='multipart/form-data'>
+            <div class="mb-3">
+                <!-- NAME -->
+                <label for="name" class="col-form-label">Name</label>
+                <InputText id="name" class="form-control" @bind-Value="Pizza.Name" />
+            </div>
+            <div class="mb-3">
+                <!-- DESCRIPTION-->
+                <label for="description" class="col-form-label">Description</label>
+                <InputText id="description" class="form-control" @bind-Value="Pizza.Description" />
+            </div>
+            <div class="mb-3">
+                <!-- PRICE -->
+                <label for="price" class="col-form-label">Price</label>
+                <InputNumber id="price" class="form-control" @bind-Value="Pizza.Price" />
+            </div>
+            <div class="mb-3 form-check">
+                <!-- SPICY -->
+                <InputCheckbox id="isSpicy" class="form-check-input" @bind-Value="Pizza.IsSpicy" />
+                <label for="isSpicy" class="form-check-label">Spicy</label>
+            </div>
+            <div class="mb-3 form-check">
+                <!-- VEGGIE -->
+                <InputCheckbox id="isVeggie" class="form-check-input" @bind-Value="Pizza.IsVege" />
+                <label for="isVeggie" class="form-check-label">Vegetarian</label>
+            </div>
+            @* <div class="mb-3">
+                <!-- INGREDIENTS -->
+                <label for="ingredients" class="col-form-label">Ingredients</label>
+                <Input id="ingredients" class="form-label" type="file" @bind-Value="Pizza.Ingredients" />
+            </div> *@
+            <div class="mb-3">
+                <!-- IMAGE -->
+                <label for="image" class="col-form-label">Picture</label>
+                <InputFile id="image" class="form-label" type="file" @bind-Value="Pizza.ImagePath" />
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </EditForm>
+    </BodyTemplate>
+</Modal>
 
 
 <div class="d-flex" style="gap: 20rem;">
@@ -31,24 +63,38 @@
                 <PizzaCard Pizza="pizza" CallbackAddPizza="AddToCart" CallBackDeletePizza="RemoveFromCart" />
             }
         }
+        <Button Color="ButtonColor.Secondary" @onclick="OnShowModalClick" Style="border-radius: 100%;">Show Modal</Button>
+
     </div>
-    <div>
-        <ShoppingCart Cart="Cart" />
-    </div>
+    @if (Cart.Count > 0)
+    {
+        <div>
+            <ShoppingCart Cart="Cart" DictCallBack="EmptyCart" />
+        </div>
+    }
 </div>
 
 @code {
     public bool IsAdmin { get; set; }
 
+    public Pizza Pizza { get; set; } = new Pizza();
+
     public List<Pizza> Pizzas { get; set; }
 
     public Dictionary<Pizza, int> Cart { get; set; } = new Dictionary<Pizza, int>();
 
-    protected override void OnInitialized()
+    protected override async Task OnInitializedAsync()
     {
-        Pizzas = pizzaService.GetAll();
+        // Pizzas = pizzaService.GetAll();
+        Pizzas = await Http.GetFromJsonAsync<List<Pizza>>("https://localhost:7188/Pizza");
     }
 
+    public async Task PostPizza()
+    {
+        var success = await Http.PostAsJsonAsync("https://localhost:7188/Pizza", Pizza);
+    }
+
+    #region CartBehavior
     public void AddToCart(Pizza pizza)
     {
         if (!Cart.ContainsKey(pizza))
@@ -74,11 +120,13 @@
         }
     }
 
-    public void ChangeAdminStatus()
+    public void EmptyCart(Dictionary<Pizza, int> dict)
     {
-        IsAdmin = !IsAdmin;
+        dict.Clear();
     }
+    #endregion
 
+    #region Modals
     private Modal modal;
 
     private async Task OnShowModalClick()
@@ -90,4 +138,6 @@
     {
         await modal?.HideAsync();
     }
+
+    #endregion
 }

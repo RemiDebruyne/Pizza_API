@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pizza_API", "Pizza_API.cspr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pizza_View", "..\Pizza_View\Pizza_View.csproj", "{B63577F0-C8DC-4680-98F1-89ADD2E8CCA8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pizzza_Core", "..\Pizzza_Core\Pizzza_Core.csproj", "{EAC131BB-B6D7-4A08-9B53-42E0B6BBA2D4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pizza_Core", "..\Pizza_Core\Pizza_Core.csproj", "{FA94DF59-636B-49A8-B0CF-0064B6815C50}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +23,10 @@ Global
 		{B63577F0-C8DC-4680-98F1-89ADD2E8CCA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B63577F0-C8DC-4680-98F1-89ADD2E8CCA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B63577F0-C8DC-4680-98F1-89ADD2E8CCA8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{EAC131BB-B6D7-4A08-9B53-42E0B6BBA2D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EAC131BB-B6D7-4A08-9B53-42E0B6BBA2D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EAC131BB-B6D7-4A08-9B53-42E0B6BBA2D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EAC131BB-B6D7-4A08-9B53-42E0B6BBA2D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA94DF59-636B-49A8-B0CF-0064B6815C50}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA94DF59-636B-49A8-B0CF-0064B6815C50}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA94DF59-636B-49A8-B0CF-0064B6815C50}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA94DF59-636B-49A8-B0CF-0064B6815C50}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -3,7 +3,7 @@ using System.Reflection;
 using System.Reflection.Metadata.Ecma335;
 using Microsoft.EntityFrameworkCore;
 using Pizza_API.Data;
-using Pizza_API.Models;
+using Pizza_Core.Models;
 
 namespace Pizza_API.Repositories
 {

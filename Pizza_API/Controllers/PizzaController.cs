@@ -3,8 +3,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
-using Pizza_API.DTOs;
-using Pizza_API.Models;
+using Pizza_Core.Models;
 using Pizza_API.Repositories;
 
 namespace Pizza_API.Controllers

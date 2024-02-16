@@ -6,7 +6,8 @@ using Pizza_API.Helpers;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.EntityFrameworkCore;
 using Pizza_API.Data;
-using Pizza_API.Models;
+
+using Pizza_Core.Models;
 using Pizza_API.Repositories;
 using System.Text.Json.Serialization;
 
