@@ -1,13 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.8.34511.84
+VisualStudioVersion = 17.9.34616.47
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pizza_API", "Pizza_API.csproj", "{38E955AA-1E1B-43B9-8420-7520B8D586C1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pizza_API", "Pizza_API\Pizza_API.csproj", "{AB5D5729-F419-47ED-9EF9-A1B823B37FD1}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pizza_View", "..\Pizza_View\Pizza_View.csproj", "{B63577F0-C8DC-4680-98F1-89ADD2E8CCA8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pizza_Core", "Pizza_Core\Pizza_Core.csproj", "{D3A2C722-5562-45DE-9383-654A05AF8A2C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pizza_Core", "..\Pizza_Core\Pizza_Core.csproj", "{FA94DF59-636B-49A8-B0CF-0064B6815C50}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pizza_View", "Pizza_View\Pizza_View.csproj", "{8F0D2DBE-8A1C-4C04-A535-814781BEE97E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,23 +15,23 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{38E955AA-1E1B-43B9-8420-7520B8D586C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{38E955AA-1E1B-43B9-8420-7520B8D586C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{38E955AA-1E1B-43B9-8420-7520B8D586C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{38E955AA-1E1B-43B9-8420-7520B8D586C1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B63577F0-C8DC-4680-98F1-89ADD2E8CCA8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B63577F0-C8DC-4680-98F1-89ADD2E8CCA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B63577F0-C8DC-4680-98F1-89ADD2E8CCA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B63577F0-C8DC-4680-98F1-89ADD2E8CCA8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FA94DF59-636B-49A8-B0CF-0064B6815C50}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FA94DF59-636B-49A8-B0CF-0064B6815C50}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FA94DF59-636B-49A8-B0CF-0064B6815C50}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FA94DF59-636B-49A8-B0CF-0064B6815C50}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB5D5729-F419-47ED-9EF9-A1B823B37FD1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB5D5729-F419-47ED-9EF9-A1B823B37FD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB5D5729-F419-47ED-9EF9-A1B823B37FD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB5D5729-F419-47ED-9EF9-A1B823B37FD1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3A2C722-5562-45DE-9383-654A05AF8A2C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3A2C722-5562-45DE-9383-654A05AF8A2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3A2C722-5562-45DE-9383-654A05AF8A2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3A2C722-5562-45DE-9383-654A05AF8A2C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F0D2DBE-8A1C-4C04-A535-814781BEE97E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F0D2DBE-8A1C-4C04-A535-814781BEE97E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F0D2DBE-8A1C-4C04-A535-814781BEE97E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F0D2DBE-8A1C-4C04-A535-814781BEE97E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {06D78994-F2E3-4AE6-92EB-F32F2B75ACF5}
+		SolutionGuid = {3C2482EB-072D-40DE-8147-E31DB1AC40CD}
 	EndGlobalSection
 EndGlobal
